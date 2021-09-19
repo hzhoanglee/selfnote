@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  #cat
+  RewriteRule ^category/(.+)/(.+)$ cat.php?act=$1&id=$2 [L]
+  RewriteRule ^category/(.+)$ cat.php?act=$1 [L]
+  RewriteRule ^categoryerror/(.+)$ cat.php?error=$1 [L]
+  #notee
+  RewriteRule ^note/(.+)/(.+)$ notee.php?act=$1&id=$2 [L]
+  RewriteRule ^note/(.+)$ notee.php?act=$1 [L]
+  RewriteRule ^noteerror/(.+)$ notee.php?error=$1 [L]
+  #Auth
+  RewriteRule ^auth auth.php [L]
+  #Auth
+  RewriteRule ^logout logout.php [L]
+  #settings
+  RewriteRule ^settings settings.php [L]
+  RewriteRule ^settings/(.+)$ settings.php?status=$1 [L]
+</IfModule>
